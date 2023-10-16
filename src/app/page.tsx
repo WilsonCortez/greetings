@@ -7,10 +7,12 @@ function getWeekDay(){
  let data = `${diaSemana} ${dia}/${mes}/${ano}`; 
  return data
 }
+let fullTime = Intl.DateTimeFormat('pt-BR', {timeStyle: 'short', hour12: false}).format()
 function getHour(){
    let hour = Intl.DateTimeFormat('pt-BR', {hour: 'numeric'}).format(new Date());
    let min = Intl.DateTimeFormat('pt-BR', {minute: '2-digit'}).format(new Date());
    let isHour = parseInt(hour);
+  
    let hello: string
    if( isHour >= 1 && isHour <= 12){
         return hello = "BOM DIA"
@@ -25,6 +27,7 @@ export default function Home() {
     <main className="container_demo">
       <div className="container_title">
           <p>{getWeekDay()}</p>
+          <h3>{fullTime}</h3>
           <h3 className="title_demo">{getHour()}</h3>         
       </div>
     </main>
